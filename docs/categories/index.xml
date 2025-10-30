@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Categories on K1B3T</title>
+    <link>https://nk1b3t.github.io/categories/</link>
+    <description>Recent content in Categories on K1B3T</description>
+    <generator>Hugo -- 0.152.1</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 30 Oct 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://nk1b3t.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CTF</title>
+      <link>https://nk1b3t.github.io/categories/ctf/</link>
+      <pubDate>Thu, 30 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>https://nk1b3t.github.io/categories/ctf/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Cybersecurity</title>
+      <link>https://nk1b3t.github.io/categories/cybersecurity/</link>
+      <pubDate>Thu, 30 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>https://nk1b3t.github.io/categories/cybersecurity/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Linux</title>
+      <link>https://nk1b3t.github.io/categories/linux/</link>
+      <pubDate>Wed, 29 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>https://nk1b3t.github.io/categories/linux/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Terminal</title>
+      <link>https://nk1b3t.github.io/categories/terminal/</link>
+      <pubDate>Wed, 29 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>https://nk1b3t.github.io/categories/terminal/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tools</title>
+      <link>https://nk1b3t.github.io/categories/tools/</link>
+      <pubDate>Wed, 29 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>https://nk1b3t.github.io/categories/tools/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

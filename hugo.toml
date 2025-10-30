@@ -1,3 +1,34 @@
-baseURL = 'https://example.org/'
-languageCode = 'en-us'
-title = 'My New Hugo Site'
+baseURL = "https://nk1b3t.github.io/"
+languageCode = "en-us"
+title = "K1B3T"
+theme = "PaperMod"
+
+[params]
+  defaultTheme = "dark"
+  ShowReadingTime = true
+  ShowShareButtons = true
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+  ShowToc = true
+  comments = false
+ 
+[menu]
+
+  [[menu.main]]
+    name = "Posts"
+    url = "/posts/"
+    weight = 1
+
+  [[menu.main]]
+  name = "Categories"
+  url = "/categories/"
+  weight = 2
+  params = { target = "_blank" }
+
+  [[menu.main]]
+  name = "Tags"
+  url = "/tags/"
+  weight = 3
+  params = { target = "_blank" }
+

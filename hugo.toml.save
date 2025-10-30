@@ -1,0 +1,1 @@
+baseURL = "https://nk1b3t.github.io/" languageCode = "en-us" title = "Nathan" theme = "PaperMod" [params] defaultTheme = "auto" ShowReadingTime = true ShowShareButtons = false ShowPostNavLinks = true ShowBreadCrumbs = true ShowCodeCopyButtons = true

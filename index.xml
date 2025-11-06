@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2025 Nathan</copyright>
-    <lastBuildDate>Wed, 29 Oct 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://nk1b3t.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 06 Nov 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://nk1b3t.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Analyzing Non-volatile Data in Linux System</title>
+      <link>https://nk1b3t.github.io/posts/autopsy/</link>
+      <pubDate>Thu, 06 Nov 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://nk1b3t.github.io/posts/autopsy/</guid>
+      <description></description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://nk1b3t.github.io/posts/autopsy/feature.jpg" />
+    </item>
     
     <item>
       <title>Record Terminal Sessions Using Asciinema</title>

@@ -7,34 +7,44 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2025 Nathan</copyright>
-    <lastBuildDate>Wed, 29 Oct 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://nk1b3t.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 06 Nov 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://nk1b3t.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>Linux</title>
-      <link>https://nk1b3t.github.io/categories/linux/</link>
-      <pubDate>Wed, 29 Oct 2025 00:00:00 +0000</pubDate>
+      <title>Digital Forensics</title>
+      <link>https://nk1b3t.github.io/categories/digital-forensics/</link>
+      <pubDate>Thu, 06 Nov 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://nk1b3t.github.io/categories/linux/</guid>
+      <guid>https://nk1b3t.github.io/categories/digital-forensics/</guid>
       <description></description>
       
     </item>
     
     <item>
-      <title>Terminal</title>
-      <link>https://nk1b3t.github.io/categories/terminal/</link>
-      <pubDate>Wed, 29 Oct 2025 00:00:00 +0000</pubDate>
+      <title>Technical Writeup</title>
+      <link>https://nk1b3t.github.io/categories/technical-writeup/</link>
+      <pubDate>Thu, 06 Nov 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://nk1b3t.github.io/categories/terminal/</guid>
+      <guid>https://nk1b3t.github.io/categories/technical-writeup/</guid>
       <description></description>
       
     </item>
     
     <item>
-      <title>Tools</title>
-      <link>https://nk1b3t.github.io/categories/tools/</link>
+      <title>Linux Tools</title>
+      <link>https://nk1b3t.github.io/categories/linux-tools/</link>
       <pubDate>Wed, 29 Oct 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://nk1b3t.github.io/categories/tools/</guid>
+      <guid>https://nk1b3t.github.io/categories/linux-tools/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Technical Tutorials</title>
+      <link>https://nk1b3t.github.io/categories/technical-tutorials/</link>
+      <pubDate>Wed, 29 Oct 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://nk1b3t.github.io/categories/technical-tutorials/</guid>
       <description></description>
       
     </item>

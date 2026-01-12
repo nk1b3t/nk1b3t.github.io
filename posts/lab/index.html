@@ -15,8 +15,8 @@
 
   
   
-    <title>Record Terminal Sessions Using Asciinema &middot; NATHAN</title>
-    <meta name="title" content="Record Terminal Sessions Using Asciinema &middot; NATHAN">
+    <title>Building a Network Intrusion Detection System (IDS) Lab with Snort &middot; NATHAN</title>
+    <meta name="title" content="Building a Network Intrusion Detection System (IDS) Lab with Snort &middot; NATHAN">
   
 
   
@@ -46,7 +46,7 @@
   
   <meta property="og:url" content="https://nk1b3t.github.io/posts/lab/">
   <meta property="og:site_name" content="NATHAN">
-  <meta property="og:title" content="Record Terminal Sessions Using Asciinema">
+  <meta property="og:title" content="Building a Network Intrusion Detection System (IDS) Lab with Snort">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -61,7 +61,7 @@
   
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://nk1b3t.github.io/posts/lab/feature.jpg">
-  <meta name="twitter:title" content="Record Terminal Sessions Using Asciinema">
+  <meta name="twitter:title" content="Building a Network Intrusion Detection System (IDS) Lab with Snort">
 
   
   
@@ -214,8 +214,8 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "articleSection": "Posts",
-    "name": "Record Terminal Sessions Using Asciinema",
-    "headline": "Record Terminal Sessions Using Asciinema",
+    "name": "Building a Network Intrusion Detection System (IDS) Lab with Snort",
+    "headline": "Building a Network Intrusion Detection System (IDS) Lab with Snort",
     
     
     "inLanguage": "en",
@@ -233,7 +233,7 @@
     "keywords": ["Snort","pfSense","NIDS","Firewall"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "109"
+    "wordCount": "689"
   }]
   </script>
 
@@ -618,7 +618,7 @@
     <img
       id="background-image"
       src="/posts/lab/feature_hu_42de72a18e5f3f4a.jpg"
-      alt="Record Terminal Sessions Using Asciinema"
+      alt="Building a Network Intrusion Detection System (IDS) Lab with Snort"
       loading="eager"
       decoding="async"
       fetchpriority="high"
@@ -651,7 +651,7 @@
     <header id="single_header" class="mt-5 max-w-prose">
       
       <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-        Record Terminal Sessions Using Asciinema
+        Building a Network Intrusion Detection System (IDS) Lab with Snort
       </h1>
       <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
         
@@ -705,7 +705,7 @@
   <div class="flex flex-row flex-wrap items-center">
     
     
-      <time datetime="2026-01-12T00:00:00&#43;00:00">12 January 2026</time><span class="px-2 text-primary-500">&middot;</span><span>109 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">1 min</span><span class="px-2 text-primary-500">&middot;</span><span class="mb-[2px]">
+      <time datetime="2026-01-12T00:00:00&#43;00:00">12 January 2026</time><span class="px-2 text-primary-500">&middot;</span><span>689 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">4 mins</span><span class="px-2 text-primary-500">&middot;</span><span class="mb-[2px]">
   <span
     id="zen-mode-button"
     class="text-lg hover:text-primary-500"
@@ -835,7 +835,33 @@
     <nav id="TableOfContents">
   <ul>
     <li><a href="#project-overview">Project Overview</a></li>
-    <li><a href="#network-topology">Network Topology</a></li>
+    <li><a href="#tools-and-configurations">Tools and Configurations</a></li>
+    <li><a href="#the-setup-phase">The Setup Phase</a></li>
+    <li><a href="#enabling-visisbilitythe-wiretap">Enabling Visisbility(The &ldquo;Wiretap&rdquo;)</a></li>
+    <li><a href="#snort-configuration-snortconf">Snort Configuration (<code>snort.conf</code>)</a></li>
+    <li><a href="#custom-detection-ruleslocalrules">Custom Detection Rules(<code>local.rules</code>)</a>
+      <ul>
+        <li><a href="#rule-a-detecting-icmp-ping-sweeps">Rule A: Detecting ICMP (Ping) Sweeps</a></li>
+        <li><a href="#rule-b-detecting-ssh-port-scans">Rule B: Detecting SSH Port Scans</a></li>
+        <li><a href="#rule-c-data-loss-prevention-dlp">Rule C: Data Loss Prevention (DLP)</a></li>
+      </ul>
+    </li>
+    <li><a href="#challenges--troubleshooting">Challenges &amp; Troubleshooting</a>
+      <ul>
+        <li><a href="#1-the-silent-nmap-scan">1. The &ldquo;Silent&rdquo; Nmap Scan</a></li>
+        <li><a href="#2-the-ssh-infinite-loop">2. The SSH &ldquo;Infinite Loop&rdquo;</a></li>
+        <li><a href="#3-windows-firewall-blocking">3. Windows Firewall Blocking</a></li>
+      </ul>
+    </li>
+    <li><a href="#the-results">The Results</a>
+      <ul>
+        <li><a href="#scenario-1-detecting-icmp-ping-sweep">Scenario 1: Detecting ICMP (ping) sweep</a></li>
+        <li><a href="#scenario-2-detecting-ssh-port-scans">Scenario 2: Detecting SSH Port Scans</a></li>
+        <li><a href="#scenario-3-catching-data-exfiltration">Scenario 3: Catching Data Exfiltration</a></li>
+        <li><a href="#summary-log-ouputt">Summary Log Ouputt</a></li>
+      </ul>
+    </li>
+    <li><a href="#conclusion">Conclusion</a></li>
   </ul>
 </nav>
   </div>
@@ -850,7 +876,33 @@
     <nav id="TableOfContents">
   <ul>
     <li><a href="#project-overview">Project Overview</a></li>
-    <li><a href="#network-topology">Network Topology</a></li>
+    <li><a href="#tools-and-configurations">Tools and Configurations</a></li>
+    <li><a href="#the-setup-phase">The Setup Phase</a></li>
+    <li><a href="#enabling-visisbilitythe-wiretap">Enabling Visisbility(The &ldquo;Wiretap&rdquo;)</a></li>
+    <li><a href="#snort-configuration-snortconf">Snort Configuration (<code>snort.conf</code>)</a></li>
+    <li><a href="#custom-detection-ruleslocalrules">Custom Detection Rules(<code>local.rules</code>)</a>
+      <ul>
+        <li><a href="#rule-a-detecting-icmp-ping-sweeps">Rule A: Detecting ICMP (Ping) Sweeps</a></li>
+        <li><a href="#rule-b-detecting-ssh-port-scans">Rule B: Detecting SSH Port Scans</a></li>
+        <li><a href="#rule-c-data-loss-prevention-dlp">Rule C: Data Loss Prevention (DLP)</a></li>
+      </ul>
+    </li>
+    <li><a href="#challenges--troubleshooting">Challenges &amp; Troubleshooting</a>
+      <ul>
+        <li><a href="#1-the-silent-nmap-scan">1. The &ldquo;Silent&rdquo; Nmap Scan</a></li>
+        <li><a href="#2-the-ssh-infinite-loop">2. The SSH &ldquo;Infinite Loop&rdquo;</a></li>
+        <li><a href="#3-windows-firewall-blocking">3. Windows Firewall Blocking</a></li>
+      </ul>
+    </li>
+    <li><a href="#the-results">The Results</a>
+      <ul>
+        <li><a href="#scenario-1-detecting-icmp-ping-sweep">Scenario 1: Detecting ICMP (ping) sweep</a></li>
+        <li><a href="#scenario-2-detecting-ssh-port-scans">Scenario 2: Detecting SSH Port Scans</a></li>
+        <li><a href="#scenario-3-catching-data-exfiltration">Scenario 3: Catching Data Exfiltration</a></li>
+        <li><a href="#summary-log-ouputt">Summary Log Ouputt</a></li>
+      </ul>
+    </li>
+    <li><a href="#conclusion">Conclusion</a></li>
   </ul>
 </nav>
   </div>
@@ -969,17 +1021,6 @@
 
         <div class="article-content max-w-prose mb-20">
           
-<h1 class="relative group">Building a Network Intrusion Detection System (IDS) Lab with Snort
-    <div id="building-a-network-intrusion-detection-system-ids-lab-with-snort" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
-        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#building-a-network-intrusion-detection-system-ids-lab-with-snort" aria-label="Anchor">#</a>
-    </span>
-    
-</h1>
-<hr>
-
 <h2 class="relative group">Project Overview
     <div id="project-overview" class="anchor"></div>
     
@@ -991,18 +1032,340 @@
 </h2>
 <p>In this project, I designed and deployed a secure virtual lab to simulate real-world network attacks. The goal was to configure <strong>Snort</strong> as a Network Intrusion Detection System (NIDS) to detect malicious traffic—specifically Pings, Port Scans, and Data Leaks—moving between a &ldquo;Attacker&rdquo; machine and a &ldquo;Victim&rdquo; machine.</p>
 <p>This lab demonstrates how to gain deep visibility into internal network traffic using <strong>Deep Packet Inspection (DPI)</strong>.</p>
-<hr>
 
-<h2 class="relative group">Network Topology
-    <div id="network-topology" class="anchor"></div>
+<h2 class="relative group">Tools and Configurations
+    <div id="tools-and-configurations" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
-        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#network-topology" aria-label="Anchor">#</a>
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#tools-and-configurations" aria-label="Anchor">#</a>
     </span>
     
 </h2>
-<p>I created a custom isolated network using VirtualBox. The critical requirement was ensuring the IDS could &ldquo;see&rdquo; traffic passing between other machines, which required specific promiscuous mode configurations.</p>
+<p>I created a custom isolated network using VirtualBox to ensure traffic was isolated but visible to the IDS.</p>
+<ul>
+<li>
+<p><strong>Gateway</strong>: pfSense (NAT + Internal Network)</p>
+</li>
+<li>
+<p><strong>Attacker</strong>: Kali Linux (Internal Network)</p>
+</li>
+<li>
+<p><strong>Victim</strong>: Windows 10 (Internal Network)</p>
+</li>
+<li>
+<p><strong>IDS</strong>: Ubuntu Server 22.04 -<code>Running Snort</code> (Internal Network)</p>
+</li>
+</ul>
+
+<h2 class="relative group">The Setup Phase
+    <div id="the-setup-phase" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#the-setup-phase" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+
+<h2 class="relative group">Enabling Visisbility(The &ldquo;Wiretap&rdquo;)
+    <div id="enabling-visisbilitythe-wiretap" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#enabling-visisbilitythe-wiretap" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<p>The most important configuration step was in VirtualBox. By default, VMs only see traffic meant for them.
+To make Snort act as a &ldquo;wiretap,&rdquo; I had to enable Promiscuous Mode: <code>Allow All</code> on the Ubuntu network adapter.</p>
+<ul>
+<li><strong>Settings</strong>: Network &gt; Adapter 1 &gt; Advanced &gt; <strong>Promiscuous Mode</strong></li>
+<li><strong>Value</strong>: <code>Allow All</code>
+<figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt="Snort Network config"
+    width="954"
+    height="582"
+    src="/posts/lab/snort1_hu_9b48bb5fae68a81f.png"
+    srcset="/posts/lab/snort1_hu_9b48bb5fae68a81f.png 800w, /posts/lab/snort1.png 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/posts/lab/snort1.png"></figure>
+
+Without this, Snort is blind to attacks against the Windows machine.</li>
+</ul>
+
+<h2 class="relative group">Snort Configuration (<code>snort.conf</code>)
+    <div id="snort-configuration-snortconf" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#snort-configuration-snortconf" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<p>I configured <code>/etc/snort/snort.conf</code> to define my network environment, ensuring Snort knows what to protect <code>(HOME_NET)</code> and what to treat as hostile <code>(EXTERNAL_NET)</code>
+.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo nano /etc/snort/snort.conf
+</span></span></code></pre></div><pre tabindex="0"><code># Define local network
+ipvar HOME_NET 192.168.1.0/24
+
+# Treat everything else as external
+ipvar EXTERNAL_NET !$HOME_NET
+</code></pre><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt="snort config"
+    width="1122"
+    height="465"
+    src="/posts/lab/snort2_hu_26b5c6799a7d83d8.png"
+    srcset="/posts/lab/snort2_hu_26b5c6799a7d83d8.png 800w, /posts/lab/snort2.png 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/posts/lab/snort2.png"></figure>
+
+<h2 class="relative group">Custom Detection Rules(<code>local.rules</code>)
+    <div id="custom-detection-ruleslocalrules" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#custom-detection-ruleslocalrules" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<p>I wrote three custom rules to test different detection capabilities:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo nano /etc/snort/rules/local.rules
+</span></span></code></pre></div>
+<h3 class="relative group">Rule A: Detecting ICMP (Ping) Sweeps
+    <div id="rule-a-detecting-icmp-ping-sweeps" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#rule-a-detecting-icmp-ping-sweeps" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<pre tabindex="0"><code>alert icmp any any -&gt; $HOME_NET any (msg:&#34;ICMP Connection Attempt Detected&#34;; sid:1000001; rev:1;)
+</code></pre>
+<h3 class="relative group">Rule B: Detecting SSH Port Scans
+    <div id="rule-b-detecting-ssh-port-scans" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#rule-b-detecting-ssh-port-scans" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<pre tabindex="0"><code>alert tcp any any -&gt; $HOME_NET 22 (msg:&#34;SSH Port Scan Detected&#34;; sid:1000002; rev:1;)
+</code></pre>
+<h3 class="relative group">Rule C: Data Loss Prevention (DLP)
+    <div id="rule-c-data-loss-prevention-dlp" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#rule-c-data-loss-prevention-dlp" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p>This rule uses Deep Packet Inspection to look for the specific string &ldquo;confidential&rdquo; inside TCP packets.</p>
+<pre tabindex="0"><code>alert tcp any any -&gt; $HOME_NET any (msg:&#34;CONFIDENTIAL DATA LEAK DETECTED&#34;; content:&#34;confidential&#34;; nocase; sid:1000005; rev:1;)
+</code></pre><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt="snort rules"
+    width="1123"
+    height="651"
+    src="/posts/lab/snort3_hu_752d0494ec8885ac.png"
+    srcset="/posts/lab/snort3_hu_752d0494ec8885ac.png 800w, /posts/lab/snort3.png 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/posts/lab/snort3.png"></figure>
+
+<h2 class="relative group">Challenges &amp; Troubleshooting
+    <div id="challenges--troubleshooting" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#challenges--troubleshooting" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<p>Real labs never work perfectly on the first try. Here are the specific &ldquo;Gotchas&rdquo; I encountered and solved:</p>
+
+<h3 class="relative group">1. The &ldquo;Silent&rdquo; Nmap Scan
+    <div id="1-the-silent-nmap-scan" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#1-the-silent-nmap-scan" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p><strong>Problem</strong>: I ran <code>nmap -sn 192.168.1.0/24</code> to sweep the network, but Snort remained silent.
+<strong>Root Cause</strong>: On a local LAN, Nmap uses ARP (Address Resolution Protocol) to find hosts, not ICMP. My rule was strictly looking for ICMP packets.
+<strong>Solution</strong>: I forced Nmap to use IP packets:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">nmap -sn --send-ip 192.168.1.0/24
+</span></span></code></pre></div>
+<h3 class="relative group">2. The SSH &ldquo;Infinite Loop&rdquo;
+    <div id="2-the-ssh-infinite-loop" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#2-the-ssh-infinite-loop" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p><strong>Problem</strong>: I was monitoring the logs via SSH using <code>tail -f</code>. When Snort detected an SSH scan, it wrote a log entry. That log text was sent over my SSH connection, which Snort detected as more SSH traffic, triggering another alert.
+<strong>Result</strong>: An infinite loop of scrolling alerts that flooded the console.
+<strong>Solution</strong>: I temporarily disabled the SSH rule (<code>#</code>) during the review phase to break the feedback loop.</p>
+
+<h3 class="relative group">3. Windows Firewall Blocking
+    <div id="3-windows-firewall-blocking" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#3-windows-firewall-blocking" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p><strong>Problem</strong>: Scanning the Windows VM returned &ldquo;Host Down&rdquo;.
+<strong>Root Cause</strong>: Windows Defender Firewall blocks ICMP (Ping) by default.
+<strong>Solution</strong>: Used the <code>-Pn</code> flag in Nmap to skip the ping check and force the scan:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">nmap -Pn -p <span class="m">22</span> 192.168.1.101
+</span></span></code></pre></div>
+<h2 class="relative group">The Results
+    <div id="the-results" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#the-results" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<p>To get real time results on snort, I used</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo tail -f /var/log/snort/snort.alert.fast
+</span></span></code></pre></div>
+<h3 class="relative group">Scenario 1: Detecting ICMP (ping) sweep
+    <div id="scenario-1-detecting-icmp-ping-sweep" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#scenario-1-detecting-icmp-ping-sweep" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p>I pinged windows IP from kali and it triggered the ICMP rule immediately.
+I also ran a scan to sweep the network and the ICMP rule was triggered.
+<figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt="rule1"
+    width="1908"
+    height="735"
+    src="/posts/lab/snort4_hu_31f2eb20f13b18a0.png"
+    srcset="/posts/lab/snort4_hu_31f2eb20f13b18a0.png 800w, /posts/lab/snort4_hu_3bc24cc82d098b0c.png 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/posts/lab/snort4.png"></figure>
+</p>
+
+<h3 class="relative group">Scenario 2: Detecting SSH Port Scans
+    <div id="scenario-2-detecting-ssh-port-scans" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#scenario-2-detecting-ssh-port-scans" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p>I scanned the IDS server from Kali triggered the TCP rule immediately.
+<figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt="ssh"
+    width="1920"
+    height="744"
+    src="/posts/lab/snort6_hu_2bb83cbb43559493.png"
+    srcset="/posts/lab/snort6_hu_2bb83cbb43559493.png 800w, /posts/lab/snort6_hu_b15578223a6b6d5e.png 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/posts/lab/snort6.png"></figure>
+</p>
+
+<h3 class="relative group">Scenario 3: Catching Data Exfiltration
+    <div id="scenario-3-catching-data-exfiltration" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#scenario-3-catching-data-exfiltration" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p>I used <code>netcat</code> to simulate a hacker stealing sensitive data.</p>
+<ul>
+<li><strong>Attacker Command</strong> (Kali)</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">nc 192.168.1.106 <span class="m">8080</span>
+</span></span><span class="line"><span class="cl">confidential data <span class="nb">test</span>
+</span></span></code></pre></div><ul>
+<li><strong>Lister command</strong> (snort)</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">nc -l -p <span class="m">8080</span>
+</span></span><span class="line"><span class="cl">confidential data <span class="nb">test</span>
+</span></span></code></pre></div><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt="data loss"
+    width="1896"
+    height="734"
+    src="/posts/lab/snort5_hu_9c0479e0d886981.png"
+    srcset="/posts/lab/snort5_hu_9c0479e0d886981.png 800w, /posts/lab/snort5_hu_8b3c5cc26821fb5f.png 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/posts/lab/snort5.png"></figure>
+
+<h3 class="relative group">Summary Log Ouputt
+    <div id="summary-log-ouputt" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#summary-log-ouputt" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p>The summary of  <code>Log Output</code> are as shown on the screenshot below:
+<figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt="lot ouput"
+    width="1920"
+    height="755"
+    src="/posts/lab/snort7_hu_2f5b41ef6f731eb3.png"
+    srcset="/posts/lab/snort7_hu_2f5b41ef6f731eb3.png 800w, /posts/lab/snort7_hu_f1ad9891db4b9e48.png 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/posts/lab/snort7.png"></figure>
+</p>
+
+<h2 class="relative group">Conclusion
+    <div id="conclusion" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#conclusion" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<p>This project successfully demonstrated how to build a functional IDS for free using VirtualBox and Snort. The lab proved that <strong>Promiscuous Mode</strong> is essential for network monitoring and that writing custom rules allows for detecting specific threats—even &ldquo;invisible&rdquo; ones like specific keywords inside a packet.</p>
 
           
           

@@ -26,10 +26,4 @@
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
-  <url>
-    <loc>https://nk1b3t.github.io/posts/asciinema/</loc>
-    <lastmod>2025-10-29T00:00:00+00:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
 </urlset>

@@ -29,15 +29,5 @@
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://nk1b3t.github.io/posts/autopsy/feature.jpg" />
     </item>
     
-    <item>
-      <title>Record Terminal Sessions Using Asciinema</title>
-      <link>https://nk1b3t.github.io/posts/asciinema/</link>
-      <pubDate>Wed, 29 Oct 2025 00:00:00 +0000</pubDate>
-      
-      <guid>https://nk1b3t.github.io/posts/asciinema/</guid>
-      <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://nk1b3t.github.io/posts/asciinema/feature.webp" />
-    </item>
-    
   </channel>
 </rss>

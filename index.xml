@@ -19,15 +19,5 @@
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://nk1b3t.github.io/posts/lab/feature.jpg" />
     </item>
     
-    <item>
-      <title>Analyzing Non-volatile Data in Linux System</title>
-      <link>https://nk1b3t.github.io/posts/autopsy/</link>
-      <pubDate>Thu, 06 Nov 2025 00:00:00 +0000</pubDate>
-      
-      <guid>https://nk1b3t.github.io/posts/autopsy/</guid>
-      <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://nk1b3t.github.io/posts/autopsy/feature.jpg" />
-    </item>
-    
   </channel>
 </rss>
